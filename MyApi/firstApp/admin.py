@@ -4,3 +4,5 @@ from .models import carspecs
 
 
 admin.site.register(carspecs)
+# admin.site.register(CarPlan)
+

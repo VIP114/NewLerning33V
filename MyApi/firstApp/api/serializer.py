@@ -6,3 +6,4 @@ class carspecsSerializer(serializers.ModelSerializer):
         model = carspecs
         fields =['id', 'car_brand', 'car_model', 'production_year',
                   'car_body', 'engine_type']
+        depth = 1

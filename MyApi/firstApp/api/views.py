@@ -22,3 +22,11 @@ class CarSpecsViewset(viewsets.ModelViewSet):
     def get_queryset(self):
         car_specs = carspecs.objects.all()
         return car_specs
+    
+    def retrieve(self,request,*args,**kwargs):
+        params = kwargs
+        print(params['pk'])
+        params_list = params['pk'].split('-')
+        cars =carspecs.objects.filter(car_brand=params_list[0],car_model=params_list[1])
+        serializer =carspecsSerializer(cars,many = True)
+        return Response(serializer.data)
